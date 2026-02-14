@@ -1,0 +1,643 @@
+{
+    "info": {
+        "_postman_id": "salesly-api-v1",
+        "name": "Salesly API v1",
+        "description": "Comprehensive API collection for Salesly application, including Auth, Products, Customers, Sales, Purchases, and Reports.",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"admin@salesly.com\",\n    \"password\": \"password\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/auth/login/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "login",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Refresh Token",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"refresh\": \"<refresh_token_here>\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/auth/refresh/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "refresh",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "My Profile",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/auth/me/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "me",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Profile",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"first_name\": \"Admin\",\n    \"last_name\": \"User\"\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/auth/me/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "auth",
+                                "me",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Products",
+            "item": [
+                {
+                    "name": "List Products",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/products/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Product",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"Premium Widget\",\n    \"sku\": \"PW-001\",\n    \"price\": \"50.00\",\n    \"stock_quantity\": 100,\n    \"description\": \"Best widget in town\",\n    \"is_active\": true\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/products/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Product",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/products/1/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "1",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Product",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"price\": \"55.00\",\n    \"stock_quantity\": 120\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/products/1/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "1",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Product",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/products/1/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "products",
+                                "1",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Customers",
+            "item": [
+                {
+                    "name": "List Customers",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/customers/?search=John",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "customers",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "John",
+                                    "description": "Optional search by name, phone, or postal code"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Customer",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"John Doe\",\n    \"phone\": \"+1234567890\",\n    \"email\": \"john@example.com\",\n    \"address\": {\n        \"street\": \"123 Main St\",\n        \"city\": \"New York\",\n        \"state\": \"NY\",\n        \"postal_code\": \"10001\",\n        \"country\": \"USA\"\n    }\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/customers/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "customers",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Customer",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/customers/1/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "customers",
+                                "1",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Customer",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"phone\": \"+1987654321\",\n    \"address\": {\n        \"street\": \"456 Elm St\"\n    }\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/customers/1/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "customers",
+                                "1",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Purchases",
+            "item": [
+                {
+                    "name": "List Purchases",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/purchases/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "purchases",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Purchase",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"vendor_name\": \"Global Supplies Inc.\",\n    \"status\": \"RECEIVED\",\n    \"items\": [\n        {\n            \"product\": 1,\n            \"quantity\": 100,\n            \"unit_cost\": \"10.00\"\n        }\n    ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/purchases/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "purchases",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Purchase",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/purchases/1/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "purchases",
+                                "1",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Sales",
+            "item": [
+                {
+                    "name": "List Sales",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/sales/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "sales",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Sale",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"status\": \"COMPLETED\",\n    \"customer\": 1,\n    \"items\": [\n        {\n            \"product\": 1,\n            \"quantity\": 2\n        },\n        {\n            \"product\": 2,\n            \"quantity\": 1\n        }\n    ]\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/sales/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "sales",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Sale",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/sales/1/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "sales",
+                                "1",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Reports & Dashboard",
+            "item": [
+                {
+                    "name": "Dashboard Metrics",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/dashboard/?start_date=2024-01-01&end_date=2024-12-31",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "dashboard",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "start_date",
+                                    "value": "2024-01-01"
+                                },
+                                {
+                                    "key": "end_date",
+                                    "value": "2024-12-31"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Sales Report CSV",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/reports/sales/?format=csv",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "reports",
+                                "sales",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "format",
+                                    "value": "csv",
+                                    "description": "csv or xlsx"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Purchase Report CSV",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/reports/purchases/?format=csv",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "reports",
+                                "purchases",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "format",
+                                    "value": "csv"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Address Labels PDF",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/api/v1/reports/labels/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "api",
+                                "v1",
+                                "reports",
+                                "labels",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": "<access_token_here>",
+                "type": "string"
+            }
+        ]
+    },
+    "event": [],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8000",
+            "type": "string"
+        }
+    ]
+}

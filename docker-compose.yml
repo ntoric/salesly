@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  web:
+    build: ./backend
+    container_name: salesly_backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8110:8000"
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=dev_secret_key_123
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - DATABASE_URL=postgres://salesly:salesly_pass@db:5432/salesly_db
+      - SQL_HOST=db
+      - SQL_PORT=5432
+      - DATABASE=postgres
+      - DJANGO_SUPERUSER_EMAIL=admin@salesly.com
+      - DJANGO_SUPERUSER_PASSWORD=password
+      - POSTGRES_SUPERUSER_PASSWORD=postgres
+      - POSTGRES_SUPERUSER_USER=postgres
+    env_file:
+      - ENV/.backend_env
+    # depends_on:
+    #   - db
+
+  # db:
+  #   image: postgres:15-alpine
+  #   volumes:
+  #     - ./postgres_data:/var/lib/postgresql/data
+  #     - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+  #   environment:
+  #     - POSTGRES_DB=salesly_db
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+
+  frontend:
+    build: ./frontend
+    container_name: salesly_frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3110:5173"
+    depends_on:
+      - web
+    env_file:
+      - ENV/.frontend_env
+
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - "8080:8080"
+
+# volumes:
+#   postgres_data:

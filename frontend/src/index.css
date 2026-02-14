@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* HSL Color Palette - Premium & Modern */
+  --primary: 220 50% 15%;
+  /* Deep Navy */
+  --primary-light: 220 50% 25%;
+  --accent: 250 80% 60%;
+  /* Vibrant Purple/Blue */
+  --accent-hover: 250 80% 50%;
+
+  --bg-body: 210 20% 98%;
+  /* Off-white/slate tint */
+  --bg-card: 0 0% 100%;
+
+  --text-main: 220 40% 10%;
+  --text-secondary: 220 20% 40%;
+  --text-muted: 220 10% 60%;
+
+  --border-light: 220 20% 92%;
+
+  --success: 150 70% 40%;
+  --error: 0 70% 50%;
+  --warning: 35 90% 50%;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: hsl(var(--bg-body));
+  color: hsl(var(--text-main));
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.2;
+  font-weight: 600;
+  color: hsl(var(--text-main));
+}
+
+a {
+  color: hsl(var(--accent));
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tracking-tight {
+  color: hsl(220deg 28.23% 50.93%) !important;
+}
