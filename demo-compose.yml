@@ -4,7 +4,7 @@ services:
   web:
     container_name: salesly_backend
     command: python manage.py runserver 0.0.0.0:8000
-    image: salesly-backend:latest
+    image: ntoric/salesly_backend:latest
     volumes:
       - ./db.sqlite3:/app/db.sqlite3
     ports:
@@ -26,7 +26,7 @@ services:
 
   frontend:
     container_name: salesly_frontend
-    image: salesly-frontend:latest
+    image: ntoric/salesly_frontend:latest
     ports:
       - "3110:80"
     depends_on:
