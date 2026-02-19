@@ -28,6 +28,10 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Create a non-root user
 RUN adduser --disabled-password --no-create-home django-user
+
+# Change ownership of the application directory to the non-root user
+RUN chown -R django-user:django-user /app
+
 USER django-user
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]

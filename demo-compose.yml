@@ -2,17 +2,18 @@ version: '3.8'
 
 services:
   web:
-    build: ./backend
     container_name: salesly_backend
-    command: gunicorn --bind 0.0.0.0:8000 config.wsgi:application
+    command: python manage.py runserver 0.0.0.0:8000
     image: salesly-backend:latest
+    volumes:
+      - ./db.sqlite3:/app/db.sqlite3
     ports:
       - "8110:8000"
     environment:
-      - DEBUG=0
+      - DEBUG=1
       - SECRET_KEY=dev_secret_key_123
-      - ALLOWED_HOSTS=localhost,127.0.0.1,web
-      - DATABASE_URL=postgres://salesly:salesly_pass@db:5432/salesly_db
+      - ALLOWED_HOSTS=localhost,127.0.0.1
+      - DATABASE_URL=sqlite:///db.sqlite3
       - SQL_HOST=db
       - SQL_PORT=5432
       - DATABASE=postgres
@@ -22,32 +23,13 @@ services:
       - POSTGRES_SUPERUSER_USER=postgres
     env_file:
       - ENV/.backend_env
-    depends_on:
-      - db
-
-  db:
-    image: postgres:15-alpine
-    container_name: salesly_db
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_DB=salesly_db
-      - POSTGRES_USER=salesly
-      - POSTGRES_PASSWORD=salesly_pass
-    ports:
-      - "5432:5432"
 
   frontend:
-    build: 
-      context: ./frontend
     container_name: salesly_frontend
     image: salesly-frontend:latest
     ports:
-      - "3000:80"
+      - "3110:80"
     depends_on:
       - web
     env_file:
       - ENV/.frontend_env
-
-volumes:
-  postgres_data:
